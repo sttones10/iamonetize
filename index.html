@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligência Artificial para pequenos negócios - IA Monetize</title>
+    <meta name="description" content="Transforme seu negócio com Inteligência Artificial. Aprenda a automatizar processos, atrair clientes e vender mais com nossos cursos e ferramentas.">
+    <link rel="icon" type="image/x-icon" href="https://github.com/sttones10/iamilionaria/ia%20monetize%20logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5E60FF',
+                        gradientFrom: '#4C6FFF',
+                        gradientTo: '#7A3EFF',
+                        light: '#B7C3FF',
+                        darkText: '#0F172A',
+                        secondaryText: '#475569',
+                        lightBg: '#F8FAFC',
+                        cardBg: '#F2F4F8',
+                        darkBg: '#0F172A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #4C6FFF, #7A3EFF);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.05'%3E%3Cg fill='%235E60FF' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .snap-carousel {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-item {
+            scroll-snap-align: start;
+        }
+        .transition-200 {
+            transition: all 0.2s ease;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease-out;
+        }
+    </style>
+</head>
+<body class="font-sans text-darkText bg-lightBg">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="http://sttones10.github.io/iamilionaria/ia%20monetize%20logo.png" alt="IA Monetize Logo" class="h-12">
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="#" class="text-secondaryText hover:text-primary transition-200">Home</a></li>
+                        <li><a href="#" class="text-secondaryText hover:text-primary transition-200">Sobre Nós</a></li>
+                        <li><a href="#" class="text-secondaryText hover:text-primary transition-200">Soluções</a></li>
+                        <li><a href="#" class="text-secondaryText hover:text-primary transition-200">Casos de Sucesso</a></li>
+                        <li><a href="#" class="text-secondaryText hover:text-primary transition-200">Cursos</a></li>
+                        <li><a href="#" class="text-secondaryText hover:text-primary transition-200">Área de Membros</a></li>
+                        <li><a href="#" class="text-secondaryText hover:text-primary transition-200">Contato</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="gradient-bg text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-200">Quero Aprender Agora</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-primary">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full absolute left-0 top-full shadow-lg">
+            <div class="container mx-auto px-4 py-4">
+                <nav>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="block text-secondaryText hover:text-primary transition-200">Home</a></li>
+                        <li><a href="#" class="block text-secondaryText hover:text-primary transition-200">Sobre Nós</a></li>
+                        <li><a href="#" class="block text-secondaryText hover:text-primary transition-200">Soluções</a></li>
+                        <li><a href="#" class="block text-secondaryText hover:text-primary transition-200">Casos de Sucesso</a></li>
+                        <li><a href="#" class="block text-secondaryText hover:text-primary transition-200">Cursos</a></li>
+                        <li><a href="#" class="block text-secondaryText hover:text-primary transition-200">Área de Membros</a></li>
+                        <li><a href="#" class="block text-secondaryText hover:text-primary transition-200">Contato</a></li>
+                        <li class="pt-4">
+                            <a href="#" class="gradient-bg text-white px-6 py-3 rounded-xl font-medium block text-center hover:shadow-lg transition-200">Quero Aprender Agora</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-darkText mb-4" data-aos="fade-up">Transforme seu negócio com Inteligência Artificial</h1>
+                <p class="text-lg md:text-xl text-secondaryText mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Atraia clientes, automatize respostas e venda mais — mesmo começando do zero.</p>
+                <a href="#" class="gradient-bg text-white px-8 py-4 rounded-xl font-bold text-lg inline-block hover:shadow-lg transition-200 transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">Quero aprender agora</a>
+            </div>
+            
+            <div class="mt-12 md:mt-16 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+                <div class="aspect-w-16 aspect-h-9 bg-cardBg rounded-2xl overflow-hidden shadow-lg">
+                    <video poster="http://static.photos/technology/1024x576/1" class="w-full" controls>
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12" data-aos="fade-up">Benefícios Principais</h2>
+            
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="bg-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition-200" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary mb-4">
+                        <i data-feather="message-square" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Automatize Instagram e WhatsApp</h3>
+                    <p class="text-secondaryText">Responda automaticamente e nunca perca um cliente</p>
+                </div>
+                
+                <div class="bg-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition-200" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary mb-4">
+                        <i data-feather="edit" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Crie conteúdos com IA em segundos</h3>
+                    <p class="text-secondaryText">Posts, artigos e anúncios prontos em minutos</p>
+                </div>
+                
+                <div class="bg-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition-200" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary mb-4">
+                        <i data-feather="trending-up" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Atraia mais clientes todos os dias</h3>
+                    <p class="text-secondaryText">Sistemas inteligentes que trabalham para você</p>
+                </div>
+                
+                <div class="bg-cardBg p-6 rounded-xl shadow-sm hover:shadow-md transition-200" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-primary mb-4">
+                        <i data-feather="clock" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Economize tempo e foque no que importa</h3>
+                    <p class="text-secondaryText">Automatize tarefas repetitivas e ganhe tempo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="py-16 bg-lightBg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12" data-aos="fade-up">Cursos práticos para transformar sua carreira ou negócio</h2>
+            
+            <div class="relative">
+                <div class="overflow-x-auto snap-carousel pb-8 -mx-4 px-4">
+                    <div class="flex space-x-4 w-max">
+                        <div class="w-72 flex-shrink-0 snap-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-200">
+                                <img src="http://static.photos/medical/640x360/1" alt="IA para Médicos" class="w-full h-40 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-bold text-lg mb-2">IA para Médicos</h3>
+                                    <p class="text-secondaryText mb-4">Captação e relacionamento automatizados</p>
+                                    <a href="#" class="text-primary font-medium">Saiba mais →</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-72 flex-shrink-0 snap-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-200">
+                                <img src="http://static.photos/legal/640x360/1" alt="IA para Advogados" class="w-full h-40 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-bold text-lg mb-2">IA para Advogados</h3>
+                                    <p class="text-secondaryText mb-4">Conteúdo, triagem e follow-up</p>
+                                    <a href="#" class="text-primary font-medium">Saiba mais →</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-72 flex-shrink-0 snap-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-200">
+                                <img src="http://static.photos/medical/640x360/2" alt="IA para Dentistas" class="w-full h-40 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-bold text-lg mb-2">IA para Dentistas</h3>
+                                    <p class="text-secondaryText mb-4">Agenda inteligente e pós-consulta</p>
+                                    <a href="#" class="text-primary font-medium">Saiba mais →</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-72 flex-shrink-0 snap-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-200">
+                                <img src="http://static.photos/workspace/640x360/1" alt="IA para Autônomos" class="w-full h-40 object-cover">
+                                <div class="p-6">
+                                    <h3 class="font-bold text-lg mb-2">IA para Autônomos</h3>
+                                    <p class="text-secondaryText mb-4">Conteúdo, anúncios e CRM básico</p>
+                                    <a href="#" class="text-primary font-medium">Saiba mais →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8" data-aos="fade-up">
+                <a href="#" class="inline-block border border-primary text-primary px-6 py-3 rounded-xl font-medium hover:bg-primary hover:text-white transition-200">Ver todos os cursos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12" data-aos="fade-up">Ferramentas que você aplica hoje mesmo</h2>
+            
+            <div class="max-w-3xl mx-auto md:hidden">
+                <div class="space-y-4">
+                    <div class="border border-cardBg rounded-xl overflow-hidden" data-aos="fade-up">
+                        <button class="accordion-button w-full text-left p-4 bg-cardBg font-medium flex justify-between items-center">
+                            <span>Gerador de Conteúdo</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4">
+                                <p class="text-secondaryText mb-4">Posts, artigos e anúncios prontos em minutos com IA</p>
+                                <img src="http://static.photos/technology/640x360/1" alt="Gerador de Conteúdo" class="w-full rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-cardBg rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <button class="accordion-button w-full text-left p-4 bg-cardBg font-medium flex justify-between items-center">
+                            <span>Automação WhatsApp/Instagram</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4">
+                                <p class="text-secondaryText mb-4">Respostas automáticas e funis de vendas inteligentes</p>
+                                <img src="http://static.photos/technology/640x360/2" alt="Automação WhatsApp/Instagram" class="w-full rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-cardBg rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <button class="accordion-button w-full text-left p-4 bg-cardBg font-medium flex justify-between items-center">
+                            <span>Chatbots Inteligentes</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4">
+                                <p class="text-secondaryText mb-4">Qualificação automática de leads 24/7</p>
+                                <img src="http://static.photos/technology/640x360/3" alt="Chatbots Inteligentes" class="w-full rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-cardBg rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <button class="accordion-button w-full text-left p-4 bg-cardBg font-medium flex justify-between items-center">
+                            <span>Dashboards</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4">
+                                <p class="text-secondaryText mb-4">Métricas de clientes e vendas em tempo real</p>
+                                <img src="http://static.photos/technology/640x360/4" alt="Dashboards" class="w-full rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-cardBg rounded-xl p-6 shadow-sm hover:shadow-md transition-200" data-aos="fade-up">
+                    <div class="text-primary mb-4">
+                        <i data-feather="file-text" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Gerador de Conteúdo</h3>
+                    <p class="text-secondaryText mb-4">Posts, artigos e anúncios prontos em minutos com IA</p>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="http://static.photos/technology/640x360/1" alt="Gerador de Conteúdo" class="w-full rounded-lg">
+                    </div>
+                </div>
+                
+                <div class="bg-cardBg rounded-xl p-6 shadow-sm hover:shadow-md transition-200" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-primary mb-4">
+                        <i data-feather="message-circle" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Automação WhatsApp/Instagram</h3>
+                    <p class="text-secondaryText mb-4">Respostas automáticas e funis de vendas inteligentes</p>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="http://static.photos/technology/640x360/2" alt="Automação WhatsApp/Instagram" class="w-full rounded-lg">
+                    </div>
+                </div>
+                
+                <div class="bg-cardBg rounded-xl p-6 shadow-sm hover:shadow-md transition-200" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-primary mb-4">
+                        <i data-feather="cpu" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Chatbots Inteligentes</h3>
+                    <p class="text-secondaryText mb-4">Qualificação automática de leads 24/7</p>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="http://static.photos/technology/640x360/3" alt="Chatbots Inteligentes" class="w-full rounded-lg">
+                    </div>
+                </div>
+                
+                <div class="bg-cardBg rounded-xl p-6 shadow-sm hover:shadow-md transition-200" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-primary mb-4">
+                        <i data-feather="bar-chart-2" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Dashboards</h3>
+                    <p class="text-secondaryText mb-4">Métricas de clientes e vendas em tempo real</p>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="http://static.photos/technology/640x360/4" alt="Dashboards" class="w-full rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-lightBg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12" data-aos="fade-up">Resultados reais com IA</h2>
+            
+            <div class="relative">
+                <div class="overflow-x-auto snap-carousel pb-8 -mx-4 px-4">
+                    <div class="flex space-x-4 w-max">
+                        <div class="w-80 flex-shrink-0 snap-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-200">
+                                <div class="relative">
+                                    <img src="http://static.photos/medical/640x360/3" alt="Depoimento Dra. Ana" class="w-full h-44 object-cover">
+                                    <button class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-200">
+                                        <i data-feather="play" class="text-white w-12 h-12"></i>
+                                    </button>
+                                    <span class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">00:54</span>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="font-bold text-lg mb-1">Dra. Ana – Dentista</h3>
+                                    <p class="text-secondaryText mb-3">"Dobrei consultas novas com respostas automáticas."</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-80 flex-shrink-0 snap-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-200">
+                                <div class="relative">
+                                    <img src="http://static.photos/legal/640x360/2" alt="Depoimento Dr. Lucas" class="w-full h-44 object-cover">
+                                    <button class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-200">
+                                        <i data-feather="play" class="text-white w-12 h-12"></i>
+                                    </button>
+                                    <span class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">01:12</span>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="font-bold text-lg mb-1">Dr. Lucas – Advogado</h3>
+                                    <p class="text-secondaryText mb-3">"Ganhei velocidade para produzir petições e conteúdos."</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-80 flex-shrink-0 snap-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-200">
+                                <div class="relative">
+                                    <img src="http://static.photos/workspace/640x360/2" alt="Depoimento Carla" class="w-full h-44 object-cover">
+                                    <button class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-200">
+                                        <i data-feather="play" class="text-white w-12 h-12"></i>
+                                    </button>
+                                    <span class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">00:48</span>
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="font-bold text-lg mb-1">Carla – Autônoma</h3>
+                                    <p class="text-secondaryText mb-3">"Parei de perder leads no WhatsApp e fecho mais."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-primary bg-opacity-5 rounded-2xl p-8 md:p-12" data-aos="fade-up">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-4">Entre na comunidade exclusiva que está crescendo com IA</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-primary w-5 h-5 mt-1 mr-2"></i>
+                                <span class="text-secondaryText">Aulas semanais com novidades e atualizações</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-primary w-5 h-5 mt-1 mr-2"></i>
+                                <span class="text-secondaryText">Templates prontos para você usar hoje</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-primary w-5 h-5 mt-1 mr-2"></i>
+                                <span class="text-secondaryText">Suporte em grupo com especialistas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check-circle" class="text-primary w-5 h-5 mt-1 mr-2"></i>
+                                <span class="text-secondaryText">Atualizações constantes de ferramentas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <a href="#" class="gradient-bg text-white px-8 py-4 rounded-xl font-bold text-lg inline-block hover:shadow-lg transition-200 transform hover:scale-105">Quero entrar agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="gradient-bg py-16 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6" data-aos="fade-up">O futuro dos negócios é agora. Comece hoje a usar IA no seu dia a dia.</h2>
+            <a href="#" class="inline-block bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-200 transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">Comece agora – é grátis testar</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkBg text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center mb-6">
+                        <img src="https://github.com/sttones10/iamilionaria/ia%20monetize%20logo.png" alt="IA Monetize Logo" class="h-8">
+                    </a>
+                    <p class="text-gray-400 mb-4">Transformando negócios com Inteligência Artificial acessível.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-200">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-200">
+                            <i data-feather="youtube" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-200">
+                            <i data-feather="message-square" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-200">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-200">Cursos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-200">Contato</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-200">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 mr-2 text-gray-400"></i>
+                            <a href="mailto:contato@iamonetize.com" class="text-gray-400 hover:text-white transition-200">contato@iamonetize.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-2 text-gray-400"></i>
+                            <a href="tel:+5511999999999" class="text-gray-400 hover:text-white transition-200">(11) 99999-9999</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2023 IA Monetize. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 600,
+            once: true
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            this.innerHTML = menu.classList.contains('hidden') ? 
+                feather.icons.menu.toSvg() : 
+                feather.icons.x.toSvg();
+        });
+        
+        // Accordion functionality
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "IA Monetize",
+        "url": "https://www.iamonetize.com",
+        "logo": "https://github.com/sttones10/iamilionaria/ia%20monetize%20logo.png",
+        "description": "Transformando negócios com Inteligência Artificial acessível.",
+        "sameAs": [
+            "https://www.instagram.com/iamonetize",
+            "https://www.youtube.com/iamonetize"
+        ]
+    }
+    </script>
+</body>
+</html>
