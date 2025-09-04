@@ -3,101 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA para Dentistas – Agenda Lotada em 7 Dias</title>
-    <meta name="description" content="Atraia pacientes, automatize consultas e aumente o faturamento sem esforço com nossa solução de IA para dentistas.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://github.com/sttones10/iamilionaria/ia%20monetize%20logo.png">
-    
-    <!-- Tailwind CSS -->
+    <title>IA para Dentistas - Agenda Lotada em 7 Dias</title>
+    <link rel="icon" type="image/x-icon" href="https://sttones10.github.io/iamilionaria/ia%20monetize%20logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         primary: '#5E60FF',
-                        gradientFrom: '#4C6FFF',
-                        gradientTo: '#7A3EFF',
+                        gradientStart: '#4C6FFF',
+                        gradientEnd: '#7A3EFF',
                         lightSupport: '#B7C3FF',
-                        textPrimary: '#0F172A',
+                        textMain: '#0F172A',
                         textSecondary: '#475569',
-                        bgPage: '#F8FAFC',
+                        bgLight: '#F8FAFC',
                         cardBg: '#F2F4F8',
+                        whatsapp: '#25D366'
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, #4C6FFF 0%, #7A3EFF 100%)',
+                    }
                 }
             }
         }
     </script>
-    
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
-        /* Custom CSS */
-        .progress-container {
-            width: 100%;
-            height: 2px;
-            background: #F2F4F8;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
         }
-        
-        .progress-bar {
-            height: 2px;
-            background: linear-gradient(90deg, #4C6FFF 0%, #7A3EFF 100%);
-            width: 0%;
-        }
-        
-        .header-scroll {
-            height: 60px;
-            backdrop-filter: blur(10px);
-            background-color: rgba(248, 250, 252, 0.9);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .pulse-animation {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(92, 96, 255, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(92, 96, 255, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(92, 96, 255, 0);
-            }
-        }
-        
-        .gradient-bg {
+        .gradient-text {
             background: linear-gradient(135deg, #4C6FFF 0%, #7A3EFF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        
-        .hover-scale {
+        .btn-primary {
+            background: linear-gradient(135deg, #4C6FFF 0%, #7A3EFF 100%);
             transition: all 0.3s ease;
         }
-        
-        .hover-scale:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .btn-primary:hover {
+            filter: brightness(1.08);
+            box-shadow: 0 4px 12px rgba(94, 96, 255, 0.3);
         }
-        
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        .btn-primary:focus {
+            outline: 2px solid #B7C3FF;
+        }
+        .btn-secondary {
+            border: 2px solid #5E60FF;
+            color: #5E60FF;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #F2F4F8;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+            transition: all 0.3s ease;
+        }
+        .btn-whatsapp:hover {
+            filter: brightness(1.08);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
         .video-thumbnail::after {
             content: '';
             position: absolute;
@@ -105,937 +80,564 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+        }
+        .play-button {
             transition: all 0.3s ease;
         }
-        
-        .video-thumbnail:hover::after {
-            background: rgba(0, 0, 0, 0.1);
+        .video-thumbnail:hover .play-button {
+            transform: scale(1.1);
         }
-        
-        .sticky-cta {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            width: calc(100% - 40px);
-            max-width: 400px;
-            animation: slideUp 0.5s ease-out;
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateX(-50%) translateY(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-        }
-        
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
-        
-        .accordion-open {
+        .accordion.active .accordion-content {
             max-height: 500px;
         }
-        
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
+        .floating-whatsapp {
+            animation: pulse 2s infinite;
         }
-        
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 60px;
-                height: 60px;
-            }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
-<body class="bg-bgPage text-textPrimary font-sans">
-    <!-- Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-    
+<body class="bg-bgLight text-textMain">
     <!-- Header -->
-    <header id="header" class="fixed w-full top-0 left-0 py-4 px-6 transition-all duration-300 z-50">
-        <div class="container mx-auto flex justify-between items-center">
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://github.com/sttones10/iamilionaria/ia%20monetize%20logo.png" alt="IA Dentista Logo" class="h-8 md:h-10">
+                <img src="https://sttones10.github.io/iamilionaria/ia%20monetize%20logo.png" alt="IA para Dentistas Logo" class="h-12">
             </div>
-            
             <div class="hidden md:flex items-center space-x-8">
-                <nav>
-                    <ul class="flex space-x-6">
-                        <li><a href="#hero" class="text-textSecondary hover:text-primary transition">Início</a></li>
-                        <li><a href="#benefits" class="text-textSecondary hover:text-primary transition">Benefícios</a></li>
-                        <li><a href="#testimonials" class="text-textSecondary hover:text-primary transition">Depoimentos</a></li>
-                        <li><a href="#how-it-works" class="text-textSecondary hover:text-primary transition">Como Funciona</a></li>
-                        <li><a href="#pricing" class="text-textSecondary hover:text-primary transition">Preço</a></li>
-                        <li><a href="#faq" class="text-textSecondary hover:text-primary transition">FAQ</a></li>
-                    </ul>
-                </nav>
-                <a href="#pricing" class="bg-primary hover:bg-opacity-90 text-white font-medium px-6 py-3 rounded-xl transition">
-                    Quero Automatizar Agora
-                </a>
+                <a href="#beneficios" class="text-textSecondary hover:text-primary transition">Benefícios</a>
+                <a href="#depoimentos" class="text-textSecondary hover:text-primary transition">Depoimentos</a>
+                <a href="#funcionamento" class="text-textSecondary hover:text-primary transition">Como Funciona</a>
+                <a href="#oferta" class="text-textSecondary hover:text-primary transition">Oferta</a>
+                <button class="btn-primary text-white font-semibold px-6 py-3 rounded-xl">Quero Automatizar</button>
             </div>
-            
-            <button id="mobileMenuButton" class="md:hidden text-primary">
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
                 <i data-feather="menu"></i>
             </button>
         </div>
-    </header>
-    
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden">
-        <div class="container mx-auto px-6 py-20">
-            <button id="closeMobileMenu" class="absolute top-6 right-6 text-primary">
-                <i data-feather="x"></i>
-            </button>
-            <nav>
-                <ul class="space-y-6">
-                    <li><a href="#hero" class="block text-2xl text-textPrimary hover:text-primary transition">Início</a></li>
-                    <li><a href="#benefits" class="block text-2xl text-textPrimary hover:text-primary transition">Benefícios</a></li>
-                    <li><a href="#testimonials" class="block text-2xl text-textPrimary hover:text-primary transition">Depoimentos</a></li>
-                    <li><a href="#how-it-works" class="block text-2xl text-textPrimary hover:text-primary transition">Como Funciona</a></li>
-                    <li><a href="#pricing" class="block text-2xl text-textPrimary hover:text-primary transition">Preço</a></li>
-                    <li><a href="#faq" class="block text-2xl text-textPrimary hover:text-primary transition">FAQ</a></li>
-                    <li><a href="#contact" class="block text-2xl text-textPrimary hover:text-primary transition">Contato</a></li>
-                </ul>
-            </nav>
-            <div class="mt-12">
-                <a href="#pricing" class="block w-full bg-primary hover:bg-opacity-90 text-white font-medium px-6 py-4 rounded-xl text-center transition">
-                    Quero Automatizar Agora
-                </a>
-            </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white w-full px-4 py-3 border-t" id="mobile-menu">
+            <a href="#beneficios" class="block py-2 text-textSecondary hover:text-primary transition">Benefícios</a>
+            <a href="#depoimentos" class="block py-2 text-textSecondary hover:text-primary transition">Depoimentos</a>
+            <a href="#funcionamento" class="block py-2 text-textSecondary hover:text-primary transition">Como Funciona</a>
+            <a href="#oferta" class="block py-2 text-textSecondary hover:text-primary transition">Oferta</a>
+            <button class="btn-primary text-white font-semibold w-full py-3 rounded-xl mt-2">Quero Automatizar</button>
         </div>
-    </div>
-    
+    </header>
+
     <!-- Hero Section -->
-    <section id="hero" class="pt-32 pb-20 px-6">
-        <div class="container mx-auto">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-12 lg:mb-0" data-aos="fade-right">
-                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                        Sua Agenda Lotada em até 7 Dias com IA para Dentistas
-                    </h1>
-                    <p class="text-xl text-textSecondary mb-8">
-                        Atraia pacientes, automatize consultas e aumente o faturamento sem esforço.
-                    </p>
-                    
-                    <div class="mb-8 p-6 bg-cardBg rounded-xl">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl font-bold text-primary">R$ 297</span>
-                            <span class="ml-3 text-lg text-textSecondary line-through">R$ 997</span>
-                            <span class="ml-3 bg-green-100 text-green-800 text-sm font-medium px-2 py-1 rounded">Economize R$ 700</span>
-                        </div>
-                        
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-primary mr-3"></i>
-                                <span>Landing Page de alta conversão para agendamentos</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-primary mr-3"></i>
-                                <span>Pacote de anúncios prontos (Meta/Instagram)</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-primary mr-3"></i>
-                                <span>Scripts de WhatsApp automatizados</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-primary mr-3"></i>
-                                <span>Relatório personalizado de performance</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#pricing" class="pulse-animation bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl text-center transition">
-                            Quero Automatizar Minha Clínica
-                        </a>
-                        <a href="#testimonials" class="bg-white hover:bg-gray-50 border border-primary text-primary font-bold px-8 py-4 rounded-xl text-center transition">
-                            Quero esses resultados
-                        </a>
-                    </div>
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-4">
+                    Sua Agenda Lotada em até <span class="gradient-text">7 Dias</span> com IA para Dentistas
+                </h1>
+                <p class="text-lg text-textSecondary mb-8">
+                    Atraia pacientes, automatize consultas e aumente o faturamento sem esforço.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="btn-primary text-white font-semibold px-6 py-3 rounded-xl">
+                        Quero Automatizar Minha Clínica
+                    </button>
+                    <button class="btn-secondary font-semibold px-6 py-3 rounded-xl">
+                        Quero esses resultados
+                    </button>
                 </div>
-                
-                <div class="lg:w-1/2" data-aos="fade-left">
-                    <div class="bg-gradient-to-br from-gradientFrom to-gradientTo p-1 rounded-2xl">
-                        <img src="http://static.photos/medical/1024x576/1" alt="Dentista atendendo paciente" class="w-full h-auto rounded-2xl">
+            </div>
+            <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
+                <div class="relative w-full max-w-md">
+                    <div class="video-thumbnail rounded-2xl overflow-hidden shadow-xl">
+                        <img src="http://static.photos/medical/640x360/1" alt="Vídeo demonstrativo" class="w-full h-auto">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="play-button bg-white bg-opacity-80 rounded-full p-4">
+                                <i data-feather="play" class="text-primary" stroke-width="3"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Benefits Section -->
-    <section id="benefits" class="py-20 px-6 bg-white">
+    <section id="beneficios" class="py-16 bg-cardBg px-4">
         <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Tudo que você precisa para lotar sua agenda</h2>
-                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
-                    Solução completa para dentistas que querem mais pacientes e menos trabalho manual
-                </p>
-            </div>
-            
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Benefícios Exclusivos</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Benefit 1 -->
-                <div class="bg-cardBg p-8 rounded-xl hover-scale" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i data-feather="calendar" class="text-white w-8 h-8"></i>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-4">
+                        <i data-feather="calendar" class="text-white" stroke-width="2"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Agendamento Automático via WhatsApp</h3>
-                    <p class="text-textSecondary">
-                        Seus pacientes agendam consultas 24/7 sem precisar de atendente humano.
-                    </p>
+                    <h3 class="font-semibold text-lg mb-2">Agenda Automatizada</h3>
+                    <p class="text-textSecondary">Nunca mais perca pacientes por falta de organização ou esquecimento.</p>
                 </div>
-                
                 <!-- Benefit 2 -->
-                <div class="bg-cardBg p-8 rounded-xl hover-scale" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i data-feather="message-square" class="text-white w-8 h-8"></i>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-4">
+                        <i data-feather="zap" class="text-white" stroke-width="2"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Chatbots 24h respondendo pacientes</h3>
-                    <p class="text-textSecondary">
-                        IA inteligente que responde dúvidas e qualifica leads automaticamente.
-                    </p>
+                    <h3 class="font-semibold text-lg mb-2">Atendimento 24/7</h3>
+                    <p class="text-textSecondary">Nossa IA responde mensagens e agenda consultas mesmo quando você dorme.</p>
                 </div>
-                
                 <!-- Benefit 3 -->
-                <div class="bg-cardBg p-8 rounded-xl hover-scale" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i data-feather="dollar-sign" class="text-white w-8 h-8"></i>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-4">
+                        <i data-feather="trending-up" class="text-white" stroke-width="2"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Anúncios que Convertem (paciente ideal)</h3>
-                    <p class="text-textSecondary">
-                        Campanhas prontas para atrair seu público-alvo com alta conversão.
-                    </p>
+                    <h3 class="font-semibold text-lg mb-2">Mais Pacientes</h3>
+                    <p class="text-textSecondary">Sistema de captação otimizado que traz novos pacientes diariamente.</p>
                 </div>
-                
                 <!-- Benefit 4 -->
-                <div class="bg-cardBg p-8 rounded-xl hover-scale" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i data-feather="bar-chart-2" class="text-white w-8 h-8"></i>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-4">
+                        <i data-feather="bar-chart-2" class="text-white" stroke-width="2"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Relatórios Automáticos do marketing</h3>
-                    <p class="text-textSecondary">
-                        Dashboard simples com todos os resultados e ROI do seu investimento.
-                    </p>
+                    <h3 class="font-semibold text-lg mb-2">Relatórios Detalhados</h3>
+                    <p class="text-textSecondary">Acompanhe todos os resultados e métricas da sua clínica em tempo real.</p>
                 </div>
             </div>
-            
-            <div class="text-center mt-16" data-aos="fade-up">
-                <a href="#pricing" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl transition">
-                    Quero lotar minha agenda
-                </a>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button class="btn-primary text-white font-semibold px-8 py-4 rounded-xl">
+                    Quero Automatizar Minha Clínica
+                </button>
             </div>
         </div>
     </section>
-    
+
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 px-6 bg-bgPage">
+    <section id="depoimentos" class="py-16 px-4">
         <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Resultados reais com IA</h2>
-                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
-                    Veja o que outros dentistas estão falando sobre nossa solução
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Resultados Reais com IA</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm hover-scale" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative video-thumbnail rounded-xl overflow-hidden mb-4">
-                        <img src="http://static.photos/people/640x360/1" alt="Depoimento Dra. Ana" class="w-full h-auto">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative video-thumbnail">
+                        <img src="http://static.photos/medical/640x360/2" alt="Depoimento Dr. Carlos" class="w-full h-auto">
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                                <i data-feather="play" class="text-primary w-8 h-8"></i>
+                            <div class="play-button bg-white bg-opacity-80 rounded-full p-3">
+                                <i data-feather="play" class="text-primary" stroke-width="2"></i>
                             </div>
                         </div>
+                        <span class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">2:45</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-1">Dra. Ana</h3>
-                    <p class="text-textSecondary mb-3">Dentista</p>
-                    <p class="mb-4">"Dobrei consultas novas com respostas automáticas."</p>
-                    <p class="text-sm text-textSecondary">00:54</p>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Dr. Carlos Silva</h3>
+                        <p class="text-sm text-textSecondary mb-2">Dentista - São Paulo</p>
+                        <p class="text-sm">"Em 5 dias minha agenda estava cheia, incrível!"</p>
+                    </div>
                 </div>
-                
                 <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm hover-scale" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative video-thumbnail rounded-xl overflow-hidden mb-4">
-                        <img src="http://static.photos/people/640x360/2" alt="Depoimento Dr. Bruno" class="w-full h-auto">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative video-thumbnail">
+                        <img src="http://static.photos/medical/640x360/3" alt="Depoimento Dra. Ana" class="w-full h-auto">
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                                <i data-feather="play" class="text-primary w-8 h-8"></i>
+                            <div class="play-button bg-white bg-opacity-80 rounded-full p-3">
+                                <i data-feather="play" class="text-primary" stroke-width="2"></i>
                             </div>
                         </div>
+                        <span class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">3:12</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-1">Dr. Bruno</h3>
-                    <p class="text-textSecondary mb-3">Ortodontista</p>
-                    <p class="mb-4">"Chatbot agendou minha semana inteira."</p>
-                    <p class="text-sm text-textSecondary">01:02</p>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Dra. Ana Paula</h3>
+                        <p class="text-sm text-textSecondary mb-2">Ortodontista - Rio de Janeiro</p>
+                        <p class="text-sm">"Triplicou meus agendamentos em 2 semanas."</p>
+                    </div>
                 </div>
-                
                 <!-- Testimonial 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm hover-scale" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative video-thumbnail rounded-xl overflow-hidden mb-4">
-                        <img src="http://static.photos/people/640x360/3" alt="Depoimento Dra. Carla" class="w-full h-auto">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative video-thumbnail">
+                        <img src="http://static.photos/medical/640x360/4" alt="Depoimento Dr. Marcos" class="w-full h-auto">
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                                <i data-feather="play" class="text-primary w-8 h-8"></i>
+                            <div class="play-button bg-white bg-opacity-80 rounded-full p-3">
+                                <i data-feather="play" class="text-primary" stroke-width="2"></i>
                             </div>
                         </div>
+                        <span class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">1:58</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-1">Dra. Carla</h3>
-                    <p class="text-textSecondary mb-3">Odontopediatra</p>
-                    <p class="mb-4">"Parei de perder leads no WhatsApp e fecho mais."</p>
-                    <p class="text-sm text-textSecondary">00:47</p>
+                    <div class="p-4">
+                        <h3 class="font-semibold">Dr. Marcos Andrade</h3>
+                        <p class="text-sm text-textSecondary mb-2">Implantodontista - Belo Horizonte</p>
+                        <p class="text-sm">"Finalmente parei de perder pacientes para a concorrência."</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-16" data-aos="fade-up">
-                <a href="#pricing" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl transition">
-                    Quero ser o próximo caso de sucesso
-                </a>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button class="btn-primary text-white font-semibold px-8 py-4 rounded-xl">
+                    Ver mais depoimentos
+                </button>
             </div>
         </div>
     </section>
-    
+
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 px-6 bg-white">
+    <section id="funcionamento" class="py-16 bg-cardBg px-4">
         <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Como Funciona</h2>
-                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
-                    Implementação rápida e resultados em até 7 dias
-                </p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Como Funciona</h2>
+            <div class="flex flex-col md:flex-row gap-8">
                 <!-- Step 1 -->
-                <div class="flex flex-col md:flex-row mb-12" data-aos="fade-up">
-                    <div class="md:w-1/4 mb-6 md:mb-0">
-                        <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center">
-                            <span class="text-white text-2xl font-bold">1</span>
-                        </div>
+                <div class="flex-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center mb-4">
+                        <span class="text-white font-bold">1</span>
                     </div>
-                    <div class="md:w-3/4">
-                        <h3 class="text-2xl font-bold mb-3">Implantamos automação no seu WhatsApp</h3>
-                        <p class="text-textSecondary">
-                            Configuramos todos os fluxos de conversa e agendamento automático diretamente no seu WhatsApp Business.
-                        </p>
-                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Cadastro Rápido</h3>
+                    <p class="text-textSecondary">Preencha um formulário simples com os dados da sua clínica.</p>
                 </div>
-                
                 <!-- Step 2 -->
-                <div class="flex flex-col md:flex-row mb-12" data-aos="fade-up" data-aos-delay="100">
-                    <div class="md:w-1/4 mb-6 md:mb-0">
-                        <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center">
-                            <span class="text-white text-2xl font-bold">2</span>
-                        </div>
+                <div class="flex-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center mb-4">
+                        <span class="text-white font-bold">2</span>
                     </div>
-                    <div class="md:w-3/4">
-                        <h3 class="text-2xl font-bold mb-3">Criamos e ativamos anúncios prontos</h3>
-                        <p class="text-textSecondary">
-                            Nossa equipe cria campanhas otimizadas para seu público-alvo e ativa nos melhores canais.
-                        </p>
-                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Integração Automática</h3>
+                    <p class="text-textSecondary">Nosso sistema se conecta ao seu WhatsApp e agenda em minutos.</p>
                 </div>
-                
                 <!-- Step 3 -->
-                <div class="flex flex-col md:flex-row mb-12" data-aos="fade-up" data-aos-delay="200">
-                    <div class="md:w-1/4 mb-6 md:mb-0">
-                        <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center">
-                            <span class="text-white text-2xl font-bold">3</span>
-                        </div>
+                <div class="flex-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center mb-4">
+                        <span class="text-white font-bold">3</span>
                     </div>
-                    <div class="md:w-3/4">
-                        <h3 class="text-2xl font-bold mb-3">Chatbot qualifica e agenda sozinho</h3>
-                        <p class="text-textSecondary">
-                            Enquanto você cuida dos pacientes, nossa IA responde dúvidas e agenda consultas automaticamente.
-                        </p>
-                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Ativação da IA</h3>
+                    <p class="text-textSecondary">A inteligência artificial começa a responder e agendar consultas.</p>
                 </div>
-                
                 <!-- Step 4 -->
-                <div class="flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="300">
-                    <div class="md:w-1/4 mb-6 md:mb-0">
-                        <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center">
-                            <span class="text-white text-2xl font-bold">4</span>
-                        </div>
+                <div class="flex-1 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center mb-4">
+                        <span class="text-white font-bold">4</span>
                     </div>
-                    <div class="md:w-3/4">
-                        <h3 class="text-2xl font-bold mb-3">Você acompanha tudo em relatórios simples</h3>
-                        <p class="text-textSecondary">
-                            Dashboard intuitivo mostra quantos pacientes agendaram, ROI das campanhas e muito mais.
-                        </p>
-                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Agenda Lotada</h3>
+                    <p class="text-textSecondary">Em até 7 dias sua agenda estará cheia de novos pacientes.</p>
                 </div>
             </div>
-            
-            <div class="text-center mt-16" data-aos="fade-up">
-                <a href="#pricing" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl transition">
-                    Quero começar agora
-                </a>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button class="btn-primary text-white font-semibold px-8 py-4 rounded-xl">
+                    Quero Começar
+                </button>
             </div>
         </div>
     </section>
-    
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 px-6 bg-gradient-to-b from-bgPage to-white">
-        <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">De R$ 997 por apenas R$ 297</h2>
-                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
-                    Oferta por tempo limitado com todos os bônus incluídos
-                </p>
-            </div>
-            
-            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up">
-                <div class="relative">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                        OFERTA POR TEMPO LIMITADO
+
+    <!-- Offer Section -->
+    <section id="oferta" class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+                <div class="bg-gradient-primary p-8 text-center text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Oferta Exclusiva por Tempo Limitado</h2>
+                    <p class="opacity-90">Comece hoje e tenha sua agenda lotada em 7 dias</p>
+                </div>
+                <div class="p-8">
+                    <div class="text-center mb-8">
+                        <p class="text-textSecondary mb-1">De:</p>
+                        <p class="text-2xl line-through">R$ 997,00</p>
+                        <p class="text-textSecondary mb-1">Por apenas:</p>
+                        <p class="text-4xl font-bold text-primary">R$ 297,00</p>
+                        <p class="text-textSecondary mt-2">ou 12x de R$ 29,75</p>
                     </div>
                     
-                    <div class="p-8 md:p-12">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-                            <div>
-                                <div class="flex items-center">
-                                    <span class="text-4xl font-bold text-primary">R$ 297</span>
-                                    <span class="ml-4 text-xl text-textSecondary line-through">R$ 997</span>
-                                </div>
-                                <p class="text-textSecondary mt-2">Pagamento único • Sem mensalidades</p>
-                            </div>
-                            
-                            <div class="mt-6 md:mt-0">
-                                <a href="#contact" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl transition">
-                                    Garantir por R$ 297
-                                </a>
-                            </div>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <i data-feather="check" class="text-primary mr-2 mt-1"></i>
+                            <p>IA que agenda consultas 24 horas por dia</p>
                         </div>
-                        
-                        <div class="border-t border-gray-200 pt-8">
-                            <h3 class="text-xl font-bold mb-6">O que está incluído:</h3>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="flex items-start">
-                                    <i data-feather="check" class="text-primary mr-3 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-bold">Landing Page de alta conversão</h4>
-                                        <p class="text-textSecondary text-sm">Página otimizada para agendamentos</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <i data-feather="check" class="text-primary mr-3 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-bold">+10 anúncios prontos</h4>
-                                        <p class="text-textSecondary text-sm">Para Odontologia (Meta/Instagram)</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <i data-feather="check" class="text-primary mr-3 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-bold">Scripts de atendimento 24h</h4>
-                                        <p class="text-textSecondary text-sm">WhatsApp automatizado</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <i data-feather="check" class="text-primary mr-3 mt-1"></i>
-                                    <div>
-                                        <h4 class="font-bold">Suporte VIP por 30 dias</h4>
-                                        <p class="text-textSecondary text-sm">Ajuda com configuração e dúvidas</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="flex items-start">
+                            <i data-feather="check" class="text-primary mr-2 mt-1"></i>
+                            <p>Site Landing Page de alta conversão para agendamentos (GRÁTIS)</p>
                         </div>
-                        
-                        <div class="mt-8 p-6 bg-cardBg rounded-xl">
-                            <div class="flex items-center">
-                                <i data-feather="shield" class="text-primary mr-4"></i>
-                                <div>
-                                    <h4 class="font-bold">Garantia de 7 dias</h4>
-                                    <p class="text-textSecondary">Satisfação ou 100% do dinheiro de volta</p>
-                                </div>
-                            </div>
+                        <div class="flex items-start">
+                            <i data-feather="check" class="text-primary mr-2 mt-1"></i>
+                            <p>+10 anúncios prontos para Odonto</p>
                         </div>
+                        <div class="flex items-start">
+                            <i data-feather="check" class="text-primary mr-2 mt-1"></i>
+                            <p>Scripts WhatsApp 24h</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="check" class="text-primary mr-2 mt-1"></i>
+                            <p>Suporte VIP 30 dias</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="check" class="text-primary mr-2 mt-1"></i>
+                            <p>Garantia de 7 dias - Se não gostar, devolvemos seu dinheiro</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <button class="btn-primary text-white font-semibold w-full py-4 rounded-xl">
+                            Quero automatizar agora
+                        </button>
+                        <button class="btn-primary text-white font-semibold w-full py-4 rounded-xl">
+                            Garantir por R$ 297
+                        </button>
+                        <button class="btn-whatsapp text-white font-semibold w-full py-4 rounded-xl flex items-center justify-center gap-2">
+                            <i data-feather="message-circle"></i>
+                            Falar no WhatsApp
+                        </button>
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-16" data-aos="fade-up">
-                <a href="#contact" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl transition mr-4">
-                    Quero automatizar agora
-                </a>
-                <a href="https://wa.me/5511999999999" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl transition">
-                    <i data-feather="message-circle" class="inline mr-2"></i> Falar no WhatsApp
-                </a>
-            </div>
         </div>
     </section>
-    
-    <!-- Cases Section -->
-    <section id="cases" class="py-20 px-6 bg-white">
+
+    <!-- IA Client Generator Section -->
+    <section class="py-16 bg-bgLight px-4">
         <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Resultados de quem já usa</h2>
-                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
-                    Dentistas que transformaram seus consultórios com nossa solução
+            <div class="text-center mb-12">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">Novo</span>
+                <h2 class="text-3xl font-bold mt-2 mb-4">IA Geradora de Clientes</h2>
+                <p class="text-textSecondary max-w-2xl mx-auto">
+                    Conecte conteúdo, páginas e anúncios em um funil simples que gera agendamentos para sua clínica.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Case 1 -->
-                <div class="bg-cardBg p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gradientFrom to-gradientTo flex items-center justify-center text-white font-bold mr-4">
-                            A
-                        </div>
-                        <div>
-                            <h3 class="font-bold">Implantodontia</h3>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-4 mx-auto">
+                        <i data-feather="instagram" class="text-white" stroke-width="2"></i>
                     </div>
-                    <p class="text-2xl font-bold text-primary">+37 consultas</p>
-                    <p class="text-textSecondary">em 9 dias</p>
-                </div>
-                
-                <!-- Case 2 -->
-                <div class="bg-cardBg p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gradientFrom to-gradientTo flex items-center justify-center text-white font-bold mr-4">
-                            B
-                        </div>
-                        <div>
-                            <h3 class="font-bold">Clínico geral</h3>
-                        </div>
-                    </div>
-                    <p class="text-2xl font-bold text-primary">Agenda cheia</p>
-                    <p class="text-textSecondary">das 14h às 20h</p>
-                </div>
-                
-                <!-- Case 3 -->
-                <div class="bg-cardBg p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gradientFrom to-gradientTo flex items-center justify-center text-white font-bold mr-4">
-                            C
-                        </div>
-                        <div>
-                            <h3 class="font-bold">Endodontia</h3>
-                        </div>
-                    </div>
-                    <p class="text-2xl font-bold text-primary">Redução de 62%</p>
-                    <p class="text-textSecondary">no no-show</p>
-                </div>
-                
-                <!-- Case 4 -->
-                <div class="bg-cardBg p-6 rounded-xl" data-aos="fade-up" data-aos-delay="400">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gradientFrom to-gradientTo flex items-center justify-center text-white font-bold mr-4">
-                            D
-                        </div>
-                        <div>
-                            <h3 class="font-bold">Ortodontia</h3>
-                        </div>
-                    </div>
-                    <p class="text-2xl font-bold text-primary">+28 pacientes</p>
-                    <p class="text-textSecondary">em 2 semanas</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-16" data-aos="fade-up">
-                <a href="#pricing" class="inline-block bg-white hover:bg-gray-50 border border-primary text-primary font-bold px-8 py-4 rounded-xl transition">
-                    Quero esses resultados
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 px-6 bg-bgPage">
-        <div class="container mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Perguntas Frequentes</h2>
-                <p class="text-xl text-textSecondary max-w-3xl mx-auto">
-                    Tudo que você precisa saber antes de começar
-                </p>
-            </div>
-            
-            <div class="max-w-3xl mx-auto">
-                <!-- FAQ 1 -->
-                <div class="mb-4 border-b border-gray-200 pb-4" data-aos="fade-up">
-                    <button class="faq-question flex justify-between items-center w-full text-left font-bold text-lg">
-                        <span>Preciso contratar um atendente para usar a solução?</span>
-                        <i data-feather="chevron-down" class="transform transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-content mt-2 text-textSecondary">
-                        <p>Não! Nossa solução foi desenvolvida para funcionar 100% automaticamente. O chatbot inteligente responde todas as dúvidas dos pacientes e agenda consultas sem necessidade de intervenção humana.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 2 -->
-                <div class="mb-4 border-b border-gray-200 pb-4" data-aos="fade-up" data-aos-delay="100">
-                    <button class="faq-question flex justify-between items-center w-full text-left font-bold text-lg">
-                        <span>Como funciona a integração com meu WhatsApp?</span>
-                        <i data-feather="chevron-down" class="transform transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-content mt-2 text-textSecondary">
-                        <p>Fazemos a integração diretamente com seu WhatsApp Business através de uma solução oficial e segura. Você mantém total controle sobre seu número e todas as mensagens continuam chegando no seu celular normalmente.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 3 -->
-                <div class="mb-4 border-b border-gray-200 pb-4" data-aos="fade-up" data-aos-delay="200">
-                    <button class="faq-question flex justify-between items-center w-full text-left font-bold text-lg">
-                        <span>Em quanto tempo a solução fica pronta?</span>
-                        <i data-feather="chevron-down" class="transform transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-content mt-2 text-textSecondary">
-                        <p>O processo de implementação leva apenas 48 horas após o pagamento. Em até 7 dias você já começa a ver os primeiros resultados com pacientes agendando consultas automaticamente.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 4 -->
-                <div class="mb-4 border-b border-gray-200 pb-4" data-aos="fade-up" data-aos-delay="300">
-                    <button class="faq-question flex justify-between items-center w-full text-left font-bold text-lg">
-                        <span>Como funciona a política de reembolso?</span>
-                        <i data-feather="chevron-down" class="transform transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-content mt-2 text-textSecondary">
-                        <p>Oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você não estiver satisfeito, basta nos avisar e devolvemos 100% do seu dinheiro sem burocracia.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 5 -->
-                <div class="mb-4 border-b border-gray-200 pb-4" data-aos="fade-up" data-aos-delay="400">
-                    <button class="faq-question flex justify-between items-center w-full text-left font-bold text-lg">
-                        <span>Preciso ter conhecimento técnico para usar?</span>
-                        <i data-feather="chevron-down" class="transform transition-transform duration-300"></i>
-                    </button>
-                    <div class="accordion-content mt-2 text-textSecondary">
-                        <p>Não é necessário nenhum conhecimento técnico. Nossa equipe cuida de toda a configuração e você recebe um treinamento simples de 15 minutos para acompanhar os resultados.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-16" data-aos="fade-up">
-                <a href="#pricing" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold px-8 py-4 rounded-xl transition">
-                    Pronto para lotar a agenda? Começar por R$ 297
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-white">
-        <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto bg-cardBg rounded-2xl p-8 md:p-12" data-aos="fade-up">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Fale conosco</h2>
-                    <p class="text-xl text-textSecondary">
-                        Dúvidas? Quer saber mais? Estamos aqui para ajudar!
+                    <h3 class="font-semibold text-lg text-center mb-2">Posts / Conteúdo de Alta Conversão</h3>
+                    <p class="text-textSecondary text-center">
+                        Posts prontos para anúncios no Instagram que atraem pacientes ideais.
                     </p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-bold mb-4">Informações de contato</h3>
-                        
-                        <div class="flex items-start mb-4">
-                            <i data-feather="mail" class="text-primary mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-bold">E-mail</h4>
-                                <p class="text-textSecondary">contato@iadentista.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start mb-4">
-                            <i data-feather="phone" class="text-primary mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-bold">Telefone/WhatsApp</h4>
-                                <p class="text-textSecondary">(11) 99999-9999</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <i data-feather="clock" class="text-primary mr-4 mt-1"></i>
-                            <div>
-                                <h4 class="font-bold">Horário de atendimento</h4>
-                                <p class="text-textSecondary">Segunda a sexta, das 9h às 18h</p>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-8">
-                            <h3 class="text-xl font-bold mb-4">Redes sociais</h3>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:shadow-md transition">
-                                    <i data-feather="instagram" class="text-primary"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:shadow-md transition">
-                                    <i data-feather="youtube" class="text-primary"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:shadow-md transition">
-                                    <i data-feather="facebook" class="text-primary"></i>
-                                </a>
-                            </div>
-                        </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-4 mx-auto">
+                        <i data-feather="layout" class="text-white" stroke-width="2"></i>
                     </div>
-                    
-                    <div>
-                        <form>
-                            <div class="mb-4">
-                                <label for="name" class="block text-sm font-medium text-textSecondary mb-1">Nome completo</label>
-                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            
-                            <div class="mb-4">
-                                <label for="email" class="block text-sm font-medium text-textSecondary mb-1">E-mail</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            
-                            <div class="mb-4">
-                                <label for="phone" class="block text-sm font-medium text-textSecondary mb-1">WhatsApp</label>
-                                <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                            </div>
-                            
-                            <div class="mb-4">
-                                <label for="message" class="block text-sm font-medium text-textSecondary mb-1">Mensagem</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold px-6 py-4 rounded-xl transition">
-                                Enviar mensagem
-                            </button>
-                        </form>
+                    <h3 class="font-semibold text-lg text-center mb-2">Página de Conversão Eficiente</h3>
+                    <p class="text-textSecondary text-center">
+                        Landing Pages otimizadas para transformar cliques em agendamentos.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center mb-4 mx-auto">
+                        <i data-feather="book-open" class="text-white" stroke-width="2"></i>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="bg-textPrimary text-white py-12 px-6">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <img src="https://github.com/sttones10/iamilionaria/ia%20monetize%20logo.png" alt="IA Dentista Logo" class="h-10 mb-4">
-                    <p class="text-gray-400">Solução completa para dentistas que querem mais pacientes e menos trabalho manual.</p>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Links úteis</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#hero" class="text-gray-400 hover:text-white transition">Início</a></li>
-                        <li><a href="#benefits" class="text-gray-400 hover:text-white transition">Benefícios</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Depoimentos</a></li>
-                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition">Preço</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white transition">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Termos de uso</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de privacidade</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookies</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Contato</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i data-feather="mail" class="text-gray-400 mr-2 w-4 h-4"></i>
-                            <span class="text-gray-400">contato@iadentista.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="phone" class="text-gray-400 mr-2 w-4 h-4"></i>
-                            <span class="text-gray-400">(11) 99999-9999</span>
-                        </li>
-                    </ul>
+                    <h3 class="font-semibold text-lg text-center mb-2">Academia IA: Anúncios Eficazes</h3>
+                    <p class="text-textSecondary text-center">
+                        Treinamentos rápidos mostrando como criar campanhas que funcionam.
+                    </p>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 IA Dentista. Todos os direitos reservados.</p>
-                
-                <div class="flex space-x-4">
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button class="btn-primary text-white font-semibold px-8 py-4 rounded-xl w-full md:w-auto">
+                    Quero Gerar Clientes Agora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-16 bg-gradient-primary text-white px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Resultados Comprovados</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-4xl font-bold mb-2" id="count1">0</p>
+                    <p class="text-lg">Agendamentos/mês</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-4xl font-bold mb-2" id="count2">0</p>
+                    <p class="text-lg">Horas economizadas</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-4xl font-bold mb-2" id="count3">0</p>
+                    <p class="text-lg">Clientes satisfeitos</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <p class="text-4xl font-bold mb-2" id="count4">0</p>
+                    <p class="text-lg">Dias para resultados</p>
+                </div>
+            </div>
+            <div class="mt-12" data-aos="fade-up">
+                <button class="btn-secondary font-semibold px-8 py-4 rounded-xl">
+                    Quero esses resultados
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Perguntas Frequentes</h2>
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="border rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <button class="accordion-toggle w-full text-left p-4 font-semibold flex justify-between items-center">
+                        <span>Como a IA agenda consultas?</span>
+                        <i data-feather="chevron-down" class="transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-4">
+                        <div class="pb-4 text-textSecondary">
+                            Nossa inteligência artificial é treinada especificamente para o setor odontológico. Ela responde mensagens, tira dúvidas frequentes e agenda consultas diretamente no seu sistema, tudo de forma automática e natural.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="border rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <button class="accordion-toggle w-full text-left p-4 font-semibold flex justify-between items-center">
+                        <span>Preciso de conhecimento técnico?</span>
+                        <i data-feather="chevron-down" class="transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-4">
+                        <div class="pb-4 text-textSecondary">
+                            Não! Nosso sistema foi desenvolvido para ser extremamente simples. Você só precisa responder um breve questionário sobre sua clínica e nós cuidamos de toda a configuração técnica.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="border rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <button class="accordion-toggle w-full text-left p-4 font-semibold flex justify-between items-center">
+                        <span>E se eu não gostar do sistema?</span>
+                        <i data-feather="chevron-down" class="transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-4">
+                        <div class="pb-4 text-textSecondary">
+                            Oferecemos uma garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeito, basta nos avisar que devolvemos 100% do seu investimento, sem perguntas.
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="border rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <button class="accordion-toggle w-full text-left p-4 font-semibold flex justify-between items-center">
+                        <span>Quanto tempo até ver resultados?</span>
+                        <i data-feather="chevron-down" class="transition-transform"></i>
+                    </button>
+                    <div class="accordion-content px-4">
+                        <div class="pb-4 text-textSecondary">
+                            A maioria de nossos clientes começa a ver aumento nos agendamentos em 3-5 dias. Em até 7 dias sua agenda estará significativamente mais cheia, desde que siga nossas recomendações.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button class="btn-primary text-white font-semibold px-8 py-4 rounded-xl w-full md:w-auto">
+                    Começar por R$ 297
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-textMain text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="https://sttones10.github.io/iamilionaria/ia%20monetize%20logo.png" alt="IA para Dentistas Logo" class="h-10">
+                    <p class="mt-2 text-gray-400">Transformando clínicas odontológicas com IA</p>
+                </div>
+                <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i data-feather="instagram" class="w-5 h-5"></i>
+                        <i data-feather="instagram"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i data-feather="youtube" class="w-5 h-5"></i>
+                        <i data-feather="youtube"></i>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i data-feather="facebook" class="w-5 h-5"></i>
+                        <i data-feather="facebook"></i>
                     </a>
                 </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2025 IA para Dentistas. Todos os direitos reservados.</p>
+                <p class="mt-2">
+                    <a href="#" class="hover:text-white transition">Termos de Uso</a> | 
+                    <a href="#" class="hover:text-white transition">Política de Privacidade</a>
+                </p>
             </div>
         </div>
     </footer>
-    
-    <!-- WhatsApp Float Button -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/5511999999999" class="w-14 h-14 md:w-16 md:h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg transition">
-            <i data-feather="message-circle" class="text-white w-6 h-6 md:w-8 md:h-8"></i>
-        </a>
-    </div>
-    
-    <!-- Sticky CTA (Mobile) -->
-    <div id="stickyCta" class="sticky-cta hidden">
-        <a href="#pricing" class="block bg-primary hover:bg-opacity-90 text-white font-bold px-6 py-4 rounded-xl text-center transition">
-            Quero Automatizar por R$ 297
-        </a>
-    </div>
-    
-    <!-- Scripts -->
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="fixed bottom-6 right-6 bg-whatsapp text-white p-4 rounded-full shadow-lg floating-whatsapp z-50">
+        <i data-feather="message-circle" class="w-6 h-6"></i>
+    </a>
+
     <script>
         // Initialize AOS
         AOS.init({
             duration: 800,
-            easing: 'ease-in-out',
             once: true
         });
-        
+
         // Initialize Feather Icons
         feather.replace();
-        
-        // Header scroll effect
-        const header = document.getElementById('header');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const closeMobileMenu = document.getElementById('closeMobileMenu');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('header-scroll');
-            } else {
-                header.classList.remove('header-scroll');
-            }
-            
-            // Progress bar
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-            
-            // Show sticky CTA after 25% scroll on mobile
-            if (window.innerWidth < 768) {
-                const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                if (scrollPercentage > 25) {
-                    document.getElementById('stickyCta').classList.remove('hidden');
-                } else {
-                    document.getElementById('stickyCta').classList.add('hidden');
-                }
-            }
+
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            this.innerHTML = menu.classList.contains('hidden') ? 
+                feather.icons.menu.toSvg() : feather.icons.x.toSvg();
         });
-        
-        // Mobile menu toggle
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        closeMobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Accordion functionality
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
+
+        // Accordion Functionality
+        document.querySelectorAll('.accordion-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContent = button.nextElementSibling;
+                const icon = button.querySelector('i');
                 
-                answer.classList.toggle('accordion-open');
-                icon.classList.toggle('rotate-180');
+                button.parentElement.classList.toggle('active');
+                
+                if (button.parentElement.classList.contains('active')) {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    accordionContent.style.maxHeight = 0;
+                    icon.style.transform = 'rotate(0deg)';
+                }
             });
         });
-        
-        // Count-up animation for case numbers
-        const caseNumbers = document.querySelectorAll('.text-2xl.font-bold.text-primary');
-        
-        const animateNumbers = () => {
-            caseNumbers.forEach(numberElement => {
-                const targetNumber = parseInt(numberElement.textContent.replace(/\D/g, ''));
-                let currentNumber = 0;
-                const increment = targetNumber / 20;
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('[id^="count"]');
+            const targets = [500, 40, 250, 7];
+            const duration = 2000;
+            const interval = duration / 100;
+            
+            counters.forEach((counter, index) => {
+                let current = 0;
+                const increment = targets[index] / (duration / interval);
                 
                 const timer = setInterval(() => {
-                    currentNumber += increment;
-                    if (currentNumber >= targetNumber) {
+                    current += increment;
+                    if (current >= targets[index]) {
+                        current = targets[index];
                         clearInterval(timer);
-                        currentNumber = targetNumber;
                     }
-                    
-                    if (numberElement.textContent.includes('+')) {
-                        numberElement.textContent = `+${Math.floor(currentNumber)}`;
-                    } else if (numberElement.textContent.includes('%')) {
-                        numberElement.textContent = `${Math.floor(currentNumber)}%`;
-                    } else {
-                        numberElement.textContent = Math.floor(currentNumber);
-                    }
-                }, 30);
+                    counter.textContent = Math.floor(current);
+                }, interval);
             });
-        };
-        
-        // Intersection Observer for count-up animation
+        }
+
+        // Trigger counters when section is in view
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateNumbers();
+                    animateCounters();
                     observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
-        
-        document.querySelectorAll('#cases .bg-cardBg').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "IA Dentista - Sua Agenda Lotada em 7 Dias",
-        "description": "Solução completa de automação para dentistas que querem mais pacientes e menos trabalho manual.",
-        "brand": {
-            "@type": "Brand",
-            "name": "IA Dentista"
-        },
-        "offers": {
-            "@type": "Offer",
-            "url": "https://www.iadentista.com",
-            "priceCurrency": "BRL",
-            "price": "297",
-            "priceValidUntil": "2023-12-31",
-            "itemCondition": "https://schema.org/NewCondition",
-            "availability": "https://schema.org/InStock"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "47"
-        }
-    }
+
+        const resultsSection = document.querySelector('#count1').parentElement.parentElement.parentElement;
+        observer.observe(resultsSection);
     </script>
 </body>
 </html>
